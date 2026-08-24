@@ -1,0 +1,20 @@
+title: Tech Cheat Sheets
+description: Concise, printable references for everyday dev tools
+baseurl: "/cheatsheet_tech"
+url: ""
+last_updated: "August 2026"
+
+markdown: kramdown
+kramdown:
+  input: GFM
+
+collections:
+  sections:
+    output: false
+
+defaults:
+  - scope:
+      path: ""
+      type: "sections"
+    values:
+      layout: null

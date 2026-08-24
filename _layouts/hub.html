@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.topic %}{{ page.title }} &middot; {% endif %}{{ site.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+  {% if page.topic %}
+    {% assign node = site.data.nav | where: "slug", page.topic | first %}
+    {% assign base = page.topic | prepend: "/" | append: "/" %}
+  {% else %}
+    {% assign node = nil %}
+    {% assign base = "/" %}
+  {% endif %}
+
+  <header>
+    <h1>{{ page.title | default: site.title }}</h1>
+    <p class="subtitle">{{ node.description | default: site.description }}</p>
+    {% include nav.html %}
+    {% if page.groups.size > 1 %}
+    <nav class="group-nav">
+      {% for group in page.groups %}
+      <a href="#{{ group | slugify }}">{{ group }}</a>
+      {% endfor %}
+    </nav>
+    {% endif %}
+  </header>
+
+  <main>
+    {% assign children = node.children | default: site.data.nav %}
+
+    {% if page.topic %}
+    <section class="hub-subtopics page-group">
+      <h2 class="page-group-heading">Sub-topics</h2>
+      <div class="topic-grid">
+        {% for child in children %}
+        <a class="topic-card" href="{{ base | append: child.slug | append: '/' | relative_url }}">
+          <h3 class="topic-card-title">{{ child.title }}</h3>
+          <p class="topic-card-desc">{{ child.description }}</p>
+        </a>
+        {% endfor %}
+      </div>
+    </section>
+    {% else %}
+    <div class="hub-home">
+      <div class="topic-grid">
+        {% for child in children %}
+        <a class="topic-card" href="{{ base | append: child.slug | append: '/' | relative_url }}">
+          <h2 class="topic-card-title">{{ child.title }}</h2>
+          <p class="topic-card-desc">{{ child.description }}</p>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+    {% if page.groups %}
+      {% assign page_sections = site.sections | where: "subtopic", page.subtopic %}
+      {% for group in page.groups %}
+        {% assign group_sections = page_sections | where: "group", group | sort: "order" %}
+        {% if group_sections.size > 0 %}
+    <section class="page-group" id="{{ group | slugify }}">
+      <h2 class="page-group-heading">{{ group }}</h2>
+      <div class="group-cards">
+        {% for section in group_sections %}
+        <div class="card {{ section.css_class }}">
+          <h3 class="card-title">{{ section.title }}</h3>
+          {{ section.content }}
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  </main>
+
+  <footer>
+    <p>
+      <a href="https://github.com/DowlingIT/cheatsheet_tech">View on GitHub</a>
+      &middot; Licensed under MIT
+    </p>
+    <p>Last updated {{ site.last_updated }}</p>
+  </footer>
+
+  {% include mermaid.html %}
+</body>
+</html>

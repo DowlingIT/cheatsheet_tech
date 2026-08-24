@@ -1,0 +1,27 @@
+---
+title: Ingress
+subtopic: kubernetes
+group: Networking
+order: 2
+---
+
+#### Ingress manifest
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: my-app
+spec:
+  rules:
+    - host: app.example.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: my-app
+                port:
+                  number: 80
+```

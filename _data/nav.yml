@@ -1,0 +1,147 @@
+- slug: javascript
+  title: JavaScript
+  description: The language, the browser, Node.js, and the ecosystem around them
+  children:
+    - slug: javascript-core
+      title: JavaScript
+      description: Core language features and syntax
+    - slug: browser-js
+      title: Browser JS
+      description: DOM, Web APIs, and browser-specific features
+    - slug: nodejs
+      title: Node.js
+      description: Node.js runtime, modules, and built-ins
+    - slug: express
+      title: Express
+      description: Minimal HTTP framework for Node.js
+    - slug: electron
+      title: Electron
+      description: Cross-platform desktop apps with web technologies
+    - slug: typescript
+      title: TypeScript
+      description: Static typing for JavaScript
+    - slug: react
+      title: React
+      description: Component-based UI library
+    - slug: nextjs
+      title: NextJS
+      description: React framework for production
+    - slug: jquery
+      title: jQuery
+      description: DOM manipulation, events, and AJAX helper library
+
+- slug: k8s
+  title: Containers & K8s
+  description: Docker, orchestration, and packaging
+  children:
+    - slug: docker
+      title: Docker
+      description: Container basics and Dockerfile reference
+    - slug: compose
+      title: Compose
+      description: Multi-container app definitions
+    - slug: swarm
+      title: Swarm
+      description: Native Docker orchestration
+    - slug: kubernetes
+      title: Kubernetes
+      description: Core kubectl commands and Kubernetes objects
+    - slug: helm
+      title: Helm
+      description: Kubernetes package manager
+    - slug: kustomize
+      title: Kustomize
+      description: Template-free Kubernetes config
+
+- slug: php
+  title: PHP
+  description: PHP and the Laravel ecosystem
+  children:
+    - slug: php-core
+      title: PHP
+      description: Language fundamentals, types, and built-in functions
+    - slug: laravel
+      title: Laravel
+      description: PHP web framework
+    - slug: livewire
+      title: Livewire
+      description: Reactive components for Laravel
+    - slug: filament
+      title: Filament
+      description: Admin panel builder for Laravel
+
+- slug: python
+  title: Python
+  description: Python, Django, and FastAPI
+  children:
+    - slug: python-core
+      title: Python
+      description: Language fundamentals, types, and built-in functions
+    - slug: django
+      title: Django
+      description: Python web framework
+    - slug: fastapi
+      title: FastAPI
+      description: Async Python API framework
+
+- slug: go
+  title: Go
+  description: Go language, tooling, and the standard library
+  children:
+    - slug: go-core
+      title: Go
+      description: Core language features and syntax
+
+- slug: sql
+  title: SQL
+  description: ANSI-standard querying and schema design, plus per-engine dialects
+  children:
+    - slug: sql-dml
+      title: SQL DML
+      description: Querying, joins, aggregation, and data modification
+    - slug: sql-ddl
+      title: SQL DDL
+      description: Data types, schema design, and constraints
+    - slug: tsql
+      title: T-SQL
+      description: SQL Server syntax, procedures, triggers, and cursors
+    - slug: pgsql
+      title: PostgreSQL
+      description: PL/pgSQL syntax, procedures, triggers, and cursors
+    - slug: mysql
+      title: MySQL
+      description: MySQL syntax, procedures, triggers, and cursors
+    - slug: sqlite
+      title: SQLite
+      description: Dialect quirks, type affinity, and what's not supported
+
+- slug: devops
+  title: DevOps
+  description: Git, hosting platforms, and CI/CD
+  children:
+    - slug: git
+      title: Git
+      description: Core Git commands, branching, and history
+    - slug: github
+      title: GitHub
+      description: Actions workflows, .github folder config, and platform settings
+    - slug: bitbucket
+      title: Bitbucket
+      description: Pipelines, repository settings, and Bitbucket-specific config
+    - slug: gitlab
+      title: GitLab
+      description: CI/CD pipelines, .gitlab-ci.yml, and platform settings
+
+- slug: editors
+  title: Editors
+  description: Terminal and GUI text editors
+  children:
+    - slug: nano
+      title: Nano
+      description: Terminal text editor basics
+    - slug: vim
+      title: Vim
+      description: Modal terminal text editor
+    - slug: vscode
+      title: VS Code
+      description: Visual Studio Code keyboard shortcuts

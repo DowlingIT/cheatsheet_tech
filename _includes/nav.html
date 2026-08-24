@@ -1,0 +1,6 @@
+<nav class="site-nav">
+  <a href="{{ '/' | relative_url }}" class="{% if page.url == '/' %}active{% endif %}">Home</a>
+  {% for topic in site.data.nav %}
+  <a href="{{ topic.slug | prepend: '/' | append: '/' | relative_url }}" class="{% if page.topic == topic.slug %}active{% endif %}">{{ topic.title }}</a>
+  {% endfor %}
+</nav>

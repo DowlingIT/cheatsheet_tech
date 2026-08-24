@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} &middot; {{ site.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+  {% assign nav_topic = site.data.nav | where: "slug", page.topic | first %}
+  {% assign nav_child = nav_topic.children | where: "slug", page.subtopic | first %}
+  {% assign subtitle = nav_child.description | default: nav_topic.description %}
+
+  <header>
+    <h1>{{ page.title }}</h1>
+    <p class="header-meta">
+      {% if nav_topic.children.size > 0 %}<a class="breadcrumb" href="{{ page.topic | prepend: '/' | append: '/' | relative_url }}">&larr; {{ nav_topic.title }}</a><span class="header-meta-sep">&middot;</span>{% endif %}<span class="subtitle">{{ subtitle }}</span>
+    </p>
+    {% include nav.html %}
+    {% if page.groups.size > 1 %}
+    <nav class="group-nav">
+      {% for group in page.groups %}
+      <a href="#{{ group | slugify }}">{{ group }}</a>
+      {% endfor %}
+    </nav>
+    {% endif %}
+  </header>
+
+  <main>
+    {% assign page_sections = site.sections | where: "subtopic", page.subtopic %}
+    {% for group in page.groups %}
+      {% assign group_sections = page_sections | where: "group", group | sort: "order" %}
+      {% if group_sections.size > 0 %}
+    <section class="page-group" id="{{ group | slugify }}">
+      <h2 class="page-group-heading">{{ group }}</h2>
+      <div class="group-cards">
+        {% for section in group_sections %}
+        <div class="card {{ section.css_class }}">
+          <h3 class="card-title">{{ section.title }}</h3>
+          {{ section.content }}
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+      {% endif %}
+    {% endfor %}
+  </main>
+
+  <footer>
+    <p>
+      <a href="https://github.com/DowlingIT/cheatsheet_tech">View on GitHub</a>
+      &middot; Licensed under MIT
+    </p>
+    <p>Last updated {{ site.last_updated }}</p>
+  </footer>
+
+  {% include mermaid.html %}
+</body>
+</html>
