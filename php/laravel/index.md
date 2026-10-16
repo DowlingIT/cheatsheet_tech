@@ -9,6 +9,7 @@ groups:
   - Routing
   - Controllers
   - Eloquent ORM
+  - Traits
   - Migrations
   - Blade Templates
   - Helpers & Events

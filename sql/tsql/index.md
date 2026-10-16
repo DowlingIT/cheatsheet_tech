@@ -5,6 +5,7 @@ topic: sql
 subtopic: tsql
 groups:
   - Dialect Basics
+  - Querying
   - Variables & Control Flow
   - Stored Procedures & Functions
   - Triggers

@@ -8,6 +8,7 @@ groups:
   - Querying
   - Joins
   - Aggregation
+  - Window Functions
   - Subqueries & CTEs
   - Built-in Functions
   - Data Modification
